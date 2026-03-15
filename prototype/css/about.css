@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+}
+.container .ball {
+  display: block;
+  background-image: conic-gradient(red, blue, red);
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  animation: protoAnimation 10s linear infinite, rotateElement 1s linear infinite;
+}
+.container .icon-tray {
+  bottom: 5%;
+  right: 10%;
+  position: absolute;
+  display: flex;
+  gap: 15px;
+}
+.container .icon-tray .icon {
+  display: inline-block;
+  font-size: 2rem;
+  animation: iconReact 10s ease-in-out infinite;
+}
+.container .icon-tray .icon:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.container .icon-tray .icon:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+@keyframes iconReact {
+  0%, 50%, 55%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  52%, 54% {
+    transform: translateY(-100px) scale(1.5);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.2));
+  }
+}
+@keyframes protoAnimation {
+  0% {
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+  }
+  25% {
+    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+  }
+  50% {
+    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(100 * 100vh / 100 - 1 * 100px);
+  }
+  75% {
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(100 * 100vh / 100 - 1 * 100px);
+  }
+  100% {
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+  }
+}
+@keyframes rotateElement {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+/*# sourceMappingURL=proto.css.map */

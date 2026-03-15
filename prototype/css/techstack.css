@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 80%;
+  background-color: gray;
+}
+.container .card {
+  background-color: rgb(105, 105, 105);
+  flex-basis: 350px;
+  height: 500px;
+  margin: 0 30px;
+  overflow: hidden;
+  border-radius: 15px;
+  opacity: 1;
+  transition: all 0.7s ease-in-out;
+}
+.container .card:hover {
+  transform: scale(1.05);
+}
+.container .on {
+  flex-grow: 1;
+}
+.container .on:hover {
+  transform: scale(1);
+}
+.container .off {
+  flex-basis: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  opacity: 0;
+}
+
+/*# sourceMappingURL=techstack.css.map */

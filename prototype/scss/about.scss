@@ -1,0 +1,116 @@
+@use "sass:math";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+
+  .ball {
+    display: block;
+    background-image: conic-gradient(red, blue, red);
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    animation:
+      protoAnimation 10s linear infinite,
+      rotateElement 1s linear infinite;
+  }
+
+  .icon-tray {
+    bottom: 5%;
+    right: 10%;
+    position: absolute;
+    display: flex;
+    gap: 15px;
+
+    .icon {
+      display: inline-block;
+      font-size: 2rem;
+
+      animation: iconReact 10s ease-in-out infinite;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+    }
+  }
+}
+
+@keyframes iconReact {
+  0%,
+  50%,
+  55%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  52%,
+  54% {
+    transform: translateY(-100px) scale(1.5);
+    filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.2));
+  }
+}
+
+@mixin moveElement(
+  $percentX: 0,
+  $percentY: 0,
+  $cWidth: 100vw,
+  $cHeight: 100vh,
+  $elementArea: 100px
+) {
+  $xPath: calc(
+    (#{$percentX} * #{$cWidth} / 100) -
+      (#{math.div($percentX, 100)} * #{$elementArea})
+  );
+  $yPath: calc(
+    (#{$percentY} * #{$cHeight} / 100) -
+      (#{math.div($percentY, 100)} * #{$elementArea})
+  );
+
+  translate: $xPath $yPath;
+}
+
+@keyframes protoAnimation {
+  0% {
+    @include moveElement(0, 0);
+  }
+  25% {
+    @include moveElement(100, 0);
+  }
+  50% {
+    @include moveElement(100, 100);
+  }
+  75% {
+    @include moveElement(0, 100);
+  }
+  100% {
+    @include moveElement(0, 0);
+  }
+}
+
+@keyframes rotateElement {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
