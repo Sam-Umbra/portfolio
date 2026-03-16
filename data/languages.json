@@ -1,0 +1,14 @@
+[
+  {
+    "imgSrc": "https://education.oracle.com/file/general/p-80-java.png",
+    "imgAlt": "Ícone da Linguagem Java",
+    "title": "Java",
+    "text": "Lorem Ipsum vldasd"
+  },
+  {
+    "imgSrc": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1280px-Python-logo-notext.svg.png",
+    "imgAlt": "Ícone da Linguagem Python",
+    "title": "Python",
+    "text": "Lorem Ipsum vldasd"
+  }
+]
