@@ -1,4 +1,6 @@
 @use "sass:math";
+$mainWidth: 100vw;
+$mainHeight: 90vh;
 
 * {
   margin: 0;
@@ -8,16 +10,61 @@
 body {
   background-color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.container {
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100vw;
+  background-color: rgb(4, 0, 76);
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .left-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .lang-icon {
+      width: 2.25rem;
+
+      path:nth-child(1) {
+        fill: gray;
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: $mainWidth;
+  height: $mainHeight;
+  background-color: black;
+}
+
+#about {
   position: relative;
   display: flex;
-  background-color: gray;
   width: 100%;
   height: 100%;
 
@@ -72,16 +119,14 @@ body {
 @mixin moveElement(
   $percentX: 0,
   $percentY: 0,
-  $cWidth: 100vw,
-  $cHeight: 100vh,
   $elementArea: 100px
 ) {
   $xPath: calc(
-    (#{$percentX} * #{$cWidth} / 100) -
+    (#{$percentX} * #{$mainWidth} / 100) -
       (#{math.div($percentX, 100)} * #{$elementArea})
   );
   $yPath: calc(
-    (#{$percentY} * #{$cHeight} / 100) -
+    (#{$percentY} * #{$mainHeight} / 100) -
       (#{math.div($percentY, 100)} * #{$elementArea})
   );
 

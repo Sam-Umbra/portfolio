@@ -6,20 +6,60 @@
 body {
   background-color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
-.container {
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100vw;
+  background-color: rgb(4, 0, 76);
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+header nav a {
+  color: white;
+  text-decoration: none;
+}
+header .left-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .left-header .lang-icon {
+  width: 2.25rem;
+}
+header .left-header .lang-icon path:nth-child(1) {
+  fill: gray;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 90vh;
+  background-color: black;
+}
+
+#about {
   position: relative;
   display: flex;
-  background-color: gray;
   width: 100%;
   height: 100%;
 }
-.container .ball {
+#about .ball {
   display: block;
   background-image: conic-gradient(red, blue, red);
   height: 100px;
@@ -27,22 +67,22 @@ body {
   border-radius: 100%;
   animation: protoAnimation 10s linear infinite, rotateElement 1s linear infinite;
 }
-.container .icon-tray {
+#about .icon-tray {
   bottom: 5%;
   right: 10%;
   position: absolute;
   display: flex;
   gap: 15px;
 }
-.container .icon-tray .icon {
+#about .icon-tray .icon {
   display: inline-block;
   font-size: 2rem;
   animation: iconReact 10s ease-in-out infinite;
 }
-.container .icon-tray .icon:nth-child(2) {
+#about .icon-tray .icon:nth-child(2) {
   animation-delay: 0.1s;
 }
-.container .icon-tray .icon:nth-child(1) {
+#about .icon-tray .icon:nth-child(1) {
   animation-delay: 0.2s;
 }
 
@@ -57,19 +97,19 @@ body {
 }
 @keyframes protoAnimation {
   0% {
-    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 90vh / 100 - 0 * 100px);
   }
   25% {
-    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(0 * 90vh / 100 - 0 * 100px);
   }
   50% {
-    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(100 * 100vh / 100 - 1 * 100px);
+    translate: calc(100 * 100vw / 100 - 1 * 100px) calc(100 * 90vh / 100 - 1 * 100px);
   }
   75% {
-    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(100 * 100vh / 100 - 1 * 100px);
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(100 * 90vh / 100 - 1 * 100px);
   }
   100% {
-    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 100vh / 100 - 0 * 100px);
+    translate: calc(0 * 100vw / 100 - 0 * 100px) calc(0 * 90vh / 100 - 0 * 100px);
   }
 }
 @keyframes rotateElement {
@@ -81,4 +121,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=proto.css.map */
+/*# sourceMappingURL=about.css.map */
